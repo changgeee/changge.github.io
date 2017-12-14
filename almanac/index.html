@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="学习使我快乐">
 <meta property="og:description" content="body * {     font-family: &quot;Consolas&quot;, &quot;Microsoft Yahei&quot;, Arial, sans-serif;   }    body {     background: white;     margin: 0;     padding: 0;   }    .box ul,   .box li {     list-style-type: n">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-11T11:30:31.000Z">
+<meta property="og:updated_time" content="2017-12-14T09:24:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习使我快乐">
 <meta name="twitter:description" content="body * {     font-family: &quot;Consolas&quot;, &quot;Microsoft Yahei&quot;, Arial, sans-serif;   }    body {     background: white;     margin: 0;     padding: 0;   }    .box ul,   .box li {     list-style-type: n">
@@ -149,15 +149,12 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta " style="padding:0;background:#000000;">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">学习使我快乐</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+        
+        <img src="/images/WX20171214-163306@2x.png" style="height:86px" draggable="false">
     </div>
       
         <p class="site-subtitle"></p>
@@ -548,9 +545,12 @@
   var data = {
     date: now.getFullYear() + '年' + (now.getMonth() - 0 + 1) + '月' + now.getDate() + '日',
     day: '星期' + Week[now.getDay()],
+    goodIndexArr:[]
   }
   tempStr = tempStr.replace('%%date%%', data.date).replace('%%day%%', data.day)
   document.querySelector('#almanac').innerHTML = tempStr;
+
+  // function getList
 </script>
         
       </div>
