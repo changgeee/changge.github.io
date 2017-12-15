@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="学习使我快乐">
 <meta property="og:description" content="创意和样式都是搬运别人的，表打我/(ㄒoㄒ)/~~             求随机选项，包括要做的事情，宜和忌的描述文案n(*≧▽≦*)n        body * {     font-family: &quot;Consolas&quot;, &quot;Microsoft Yahei&quot;, Arial, sans-serif;   }    body {     background: white;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-14T16:04:01.000Z">
+<meta property="og:updated_time" content="2017-12-15T03:12:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习使我快乐">
 <meta name="twitter:description" content="创意和样式都是搬运别人的，表打我/(ㄒoㄒ)/~~             求随机选项，包括要做的事情，宜和忌的描述文案n(*≧▽≦*)n        body * {     font-family: &quot;Consolas&quot;, &quot;Microsoft Yahei&quot;, Arial, sans-serif;   }    body {     background: white;">
@@ -530,6 +530,23 @@
   tempStr = tempStr.replace('%%date%%', data.date).replace('%%day%%', data.day)
   document.querySelector('#almanac').innerHTML = tempStr;
 
+
+
+
+
+  Math.seed = function (s) {
+    var m_w = s;
+    var m_z = 987654321;
+    var mask = 0xffffffff;
+    return function () {
+      m_z = (36969 * (m_z & 65535) + (m_z >> 16)) & mask;
+      m_w = (18000 * (m_w & 65535) + (m_w >> 16)) & mask;
+      var result = ((m_z << 16) + m_w) & mask;
+      result /= 4294967296;
+      return result + 0.5;
+    }
+  }
+
   // function getList
 </script>
         
@@ -596,7 +613,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
