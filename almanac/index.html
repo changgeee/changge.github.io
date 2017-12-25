@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="学习使我快乐">
 <meta property="og:description" content="创意和样式都是搬运别人的，表打我/(ㄒoㄒ)/~~             求随机选项，包括要做的事情，宜和忌的描述文案n(*≧▽≦*)n        body * {     font-family: &quot;Consolas&quot;, &quot;Microsoft Yahei&quot;, Arial, sans-serif;   }    body {     background: white;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-15T03:12:12.000Z">
+<meta property="og:updated_time" content="2017-12-15T06:48:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习使我快乐">
 <meta name="twitter:description" content="创意和样式都是搬运别人的，表打我/(ㄒoㄒ)/~~             求随机选项，包括要做的事情，宜和忌的描述文案n(*≧▽≦*)n        body * {     font-family: &quot;Consolas&quot;, &quot;Microsoft Yahei&quot;, Arial, sans-serif;   }    body {     background: white;">
@@ -488,6 +488,18 @@
   }
 </style>
 <script>
+  Math.seed = function (s) {
+    var m_w = s;
+    var m_z = 987654321;
+    var mask = 0xffffffff;
+    return function () {
+      m_z = (36969 * (m_z & 65535) + (m_z >> 16)) & mask;
+      m_w = (18000 * (m_w & 65535) + (m_w >> 16)) & mask;
+      var result = ((m_z << 16) + m_w) & mask;
+      result /= 4294967296;
+      return result + 0.5;
+    }
+  }
   var activities = [
     { name: "写单元测试", good: "写单元测试将减少出错", bad: "写单元测试会降低你的开发效率" },
     { name: "洗澡", good: "你几天没洗澡了？", bad: "会把设计方面的灵感洗掉", weekend: true },
@@ -529,25 +541,36 @@
   }
   tempStr = tempStr.replace('%%date%%', data.date).replace('%%day%%', data.day)
   document.querySelector('#almanac').innerHTML = tempStr;
+  getIndexList()
+
+  function getIndexList() {
+    var now = new Date();
+    var seed = (now.getMonth() - 0 + 1) * now.getDate()
+    var goodLength = Math.ceil(Math.seed(seed + 22)() * 3) - 0 + 2
+    var badLength = Math.ceil(Math.seed(seed + 33)() * 3) - 0 + 2
+    var arr = [], order = 1
+    getArr(goodLength - 0 + badLength)
+    console.log(arr)
 
 
-
-
-
-  Math.seed = function (s) {
-    var m_w = s;
-    var m_z = 987654321;
-    var mask = 0xffffffff;
-    return function () {
-      m_z = (36969 * (m_z & 65535) + (m_z >> 16)) & mask;
-      m_w = (18000 * (m_w & 65535) + (m_w >> 16)) & mask;
-      var result = ((m_z << 16) + m_w) & mask;
-      result /= 4294967296;
-      return result + 0.5;
+    function getArr(len) {
+      let key = true, num = Math.ceil(Math.seed(seed / 1000 * order)() * activities.length) - 1
+      order += 1
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === num) {
+          key = false
+        }
+      }
+      if (key) {
+        arr.push(num)
+      }
+      console.log('len:', len, 'num:', num, 'seed', seed + '' + order - 0, 'arr:', arr)
+      if (arr.length < len && arr.length < 3) {
+        getArr(len)
+      }
     }
   }
 
-  // function getList
 </script>
         
       </div>
