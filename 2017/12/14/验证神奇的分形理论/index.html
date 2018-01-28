@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="other," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在b站看到一个关于分形理论的视频，感觉很不可思议，所以决定来验证一下；  什么是分形理论？ 用分形分维的数学工具来描述研究客观事物。它跳出了一维的线、二维的面、三维的立体乃至四维时空的传统藩篱，更加趋近复杂系统的真实属性与状态的描述，更加符合客观事物的多样性与复杂性。  我们要做什么？ 在一个平面内建立三个点，呈三角形分布，分别命名为abc 在a和b中间取一个点(与a和b在一条直线上),作为原">
+<meta name="keywords" content="other">
+<meta property="og:type" content="article">
+<meta property="og:title" content="验证神奇的分形理论">
+<meta property="og:url" content="http://yoursite.com/2017/12/14/验证神奇的分形理论/index.html">
+<meta property="og:site_name" content="学习使我快乐">
+<meta property="og:description" content="在b站看到一个关于分形理论的视频，感觉很不可思议，所以决定来验证一下；  什么是分形理论？ 用分形分维的数学工具来描述研究客观事物。它跳出了一维的线、二维的面、三维的立体乃至四维时空的传统藩篱，更加趋近复杂系统的真实属性与状态的描述，更加符合客观事物的多样性与复杂性。  我们要做什么？ 在一个平面内建立三个点，呈三角形分布，分别命名为abc 在a和b中间取一个点(与a和b在一条直线上),作为原">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/sangruo/sangruo-images/master/blog/dotabc.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/sangruo/sangruo-images/master/blog/dotResult1000.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/sangruo/sangruo-images/master/blog/dotResult50000.png">
+<meta property="og:updated_time" content="2018-01-28T14:51:42.039Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="验证神奇的分形理论">
+<meta name="twitter:description" content="在b站看到一个关于分形理论的视频，感觉很不可思议，所以决定来验证一下；  什么是分形理论？ 用分形分维的数学工具来描述研究客观事物。它跳出了一维的线、二维的面、三维的立体乃至四维时空的传统藩篱，更加趋近复杂系统的真实属性与状态的描述，更加符合客观事物的多样性与复杂性。  我们要做什么？ 在一个平面内建立三个点，呈三角形分布，分别命名为abc 在a和b中间取一个点(与a和b在一条直线上),作为原">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/sangruo/sangruo-images/master/blog/dotabc.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/14/验证神奇的分形理论/"/>
+
+
+
+
+
+  <title>验证神奇的分形理论 | 学习使我快乐</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta " style="padding:0;background:#000000;">
+    
+
+    <div class="custom-logo-site-title">
+        
+        <img src="/images/WX20171214-163306@2x.png" style="height:86px" draggable="false">
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/14/验证神奇的分形理论/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changge">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/IMG_3618.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习使我快乐">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">验证神奇的分形理论</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T20:25:38+08:00">
+                2017-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>在b站看到一个关于分形理论的视频，感觉很不可思议，所以决定来验证一下；</p>
+</blockquote>
+<h3 id="什么是分形理论？"><a href="#什么是分形理论？" class="headerlink" title="什么是分形理论？"></a>什么是分形理论？</h3><blockquote>
+<p>用分形分维的数学工具来描述研究客观事物。它跳出了一维的线、二维的面、三维的立体乃至四维时空的传统藩篱，更加趋近复杂系统的真实属性与状态的描述，更加符合客观事物的多样性与复杂性。</p>
+</blockquote>
+<h3 id="我们要做什么？"><a href="#我们要做什么？" class="headerlink" title="我们要做什么？"></a>我们要做什么？</h3><ul>
+<li>在一个平面内建立三个点，呈三角形分布，分别命名为abc<br><img src="https://raw.githubusercontent.com/sangruo/sangruo-images/master/blog/dotabc.png" style="width:200px;height:200px"></li>
+<li>在a和b中间取一个点(与a和b在一条直线上),作为原点；</li>
+<li>随机选择abc中的一个，在其与原点的正中间绘制一个点；</li>
+<li>以新绘制的点作为原点重复上一步；</li>
+<li>重复1000次，10000次……</li>
+<li>观察呈现出的图案</li>
+</ul>
+<h3 id="嘛，先上结果"><a href="#嘛，先上结果" class="headerlink" title="嘛，先上结果"></a>嘛，先上结果</h3><ul>
+<li>1000次<br><img src="https://raw.githubusercontent.com/sangruo/sangruo-images/master/blog/dotResult1000.png" style="width:200px;height:200px"></li>
+<li>50000次<br><img src="https://raw.githubusercontent.com/sangruo/sangruo-images/master/blog/dotResult50000.png" style="width:200px;height:200px"></li>
+</ul>
+<h3 id="实现很简单，用canvas重复描点"><a href="#实现很简单，用canvas重复描点" class="headerlink" title="实现很简单，用canvas重复描点"></a>实现很简单，用canvas重复描点</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>)</span><br><span class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>)</span><br><span class="line"><span class="keyword">var</span> a = &#123; <span class="attr">x</span>: <span class="number">10</span>, <span class="attr">y</span>: <span class="number">90</span> &#125;, b = &#123; <span class="attr">x</span>: <span class="number">46</span>, <span class="attr">y</span>: <span class="number">12</span> &#125;, c = &#123; <span class="attr">x</span>: <span class="number">93</span>, <span class="attr">y</span>: <span class="number">83</span> &#125;</span><br><span class="line">fnCreateDot(a.x, a.y)</span><br><span class="line">fnCreateDot(b.x, b.y)</span><br><span class="line">fnCreateDot(c.x, c.y)</span><br><span class="line"><span class="keyword">var</span> originDot = &#123; <span class="attr">x</span>: <span class="number">28</span>, <span class="attr">y</span>: <span class="number">51</span> &#125;</span><br><span class="line">fnCreateDot(originDot.x, originDot.y)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnCreateDot</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  ctx.fillRect(x, y, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnRun</span>(<span class="params">times</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> endDot = <span class="built_in">Math</span>.ceil(<span class="built_in">Math</span>.random() * <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">if</span> (endDot === <span class="number">1</span>) &#123;</span><br><span class="line">      originDot = &#123; <span class="attr">x</span>: <span class="built_in">Math</span>.ceil((originDot.x + a.x) / <span class="number">2</span>), <span class="attr">y</span>: <span class="built_in">Math</span>.ceil((originDot.y - <span class="number">0</span> + a.y) / <span class="number">2</span>) &#125;</span><br><span class="line">      fnCreateDot(originDot.x, originDot.y)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (endDot === <span class="number">2</span>) &#123;</span><br><span class="line">      originDot = &#123; <span class="attr">x</span>: <span class="built_in">Math</span>.ceil((originDot.x + b.x) / <span class="number">2</span>), <span class="attr">y</span>: <span class="built_in">Math</span>.ceil((originDot.y - <span class="number">0</span> + b.y) / <span class="number">2</span>) &#125;</span><br><span class="line">      fnCreateDot(originDot.x, originDot.y)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (endDot === <span class="number">3</span>) &#123;</span><br><span class="line">      originDot = &#123; <span class="attr">x</span>: <span class="built_in">Math</span>.ceil((originDot.x + c.x) / <span class="number">2</span>), <span class="attr">y</span>: <span class="built_in">Math</span>.ceil((originDot.y - <span class="number">0</span> + c.y) / <span class="number">2</span>) &#125;</span><br><span class="line">      fnCreateDot(originDot.x, originDot.y)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">fnRun(<span class="number">50000</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="下次试试其他图案23333"><a href="#下次试试其他图案23333" class="headerlink" title="下次试试其他图案23333"></a>下次试试其他图案23333</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/other/" rel="tag"># other</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/12/一些优秀的项目地址-我一定会看的/" rel="next" title="一些优秀的项目地址(我一定会看的)">
+                <i class="fa fa-chevron-left"></i> 一些优秀的项目地址(我一定会看的)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/15/js随机数因子/" rel="prev" title="js随机数因子">
+                js随机数因子 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+  
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/IMG_3618.JPG"
+                alt="Changge" />
+            
+              <p class="site-author-name" itemprop="name">Changge</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是分形理论？"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4EC0;&#x4E48;&#x662F;&#x5206;&#x5F62;&#x7406;&#x8BBA;&#xFF1F;" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;&#x5206;&#x5F62;&#x7406;&#x8BBA;&#xFF1F;"></a>&#x4EC0;&#x4E48;&#x662F;&#x5206;&#x5F62;&#x7406;&#x8BBA;&#xFF1F;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们要做什么？"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x6211;&#x4EEC;&#x8981;&#x505A;&#x4EC0;&#x4E48;&#xFF1F;" class="headerlink" title="&#x6211;&#x4EEC;&#x8981;&#x505A;&#x4EC0;&#x4E48;&#xFF1F;"></a>&#x6211;&#x4EEC;&#x8981;&#x505A;&#x4EC0;&#x4E48;&#xFF1F;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嘛，先上结果"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x561B;&#xFF0C;&#x5148;&#x4E0A;&#x7ED3;&#x679C;" class="headerlink" title="&#x561B;&#xFF0C;&#x5148;&#x4E0A;&#x7ED3;&#x679C;"></a>&#x561B;&#xFF0C;&#x5148;&#x4E0A;&#x7ED3;&#x679C;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现很简单，用canvas重复描点"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x5B9E;&#x73B0;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x7528;canvas&#x91CD;&#x590D;&#x63CF;&#x70B9;" class="headerlink" title="&#x5B9E;&#x73B0;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x7528;canvas&#x91CD;&#x590D;&#x63CF;&#x70B9;"></a>&#x5B9E;&#x73B0;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x7528;canvas&#x91CD;&#x590D;&#x63CF;&#x70B9;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下次试试其他图案23333"><span class="nav-number">5.</span> <span class="nav-text"><a href="#&#x4E0B;&#x6B21;&#x8BD5;&#x8BD5;&#x5176;&#x4ED6;&#x56FE;&#x6848;23333" class="headerlink" title="&#x4E0B;&#x6B21;&#x8BD5;&#x8BD5;&#x5176;&#x4ED6;&#x56FE;&#x6848;23333"></a>&#x4E0B;&#x6B21;&#x8BD5;&#x8BD5;&#x5176;&#x4ED6;&#x56FE;&#x6848;23333</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Changge</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+      <link rel='stylesheet' href="/lib/gitalk/gitalk.css">
+      <script src="/lib/gitalk/gitalk.min.js"></script>
+      <script type="text/javascript">
+          var gitalk = new Gitalk({
+            clientID:  '5c4ccb692d43c44c9a51',
+            clientSecret: '2bd8d992f7e97a6fc304a8b427d3bd131bada356',
+            id: window.location.pathname,
+            repo: 'sangruo.github.io',
+            owner: 'sangruo',
+            admin: 'sangruo',
+            distractionFreeMode: 'true',
+          })
+          gitalk.render('gitalk-container')
+      </script>
+    
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
